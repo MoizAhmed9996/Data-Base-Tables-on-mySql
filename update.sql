@@ -169,3 +169,63 @@ INSERT INTO feedback_rating (student_id, course_id, rating, feedback) VALUES
 (3, 3, 4, 'Useful for educational purposes.'),
 (4, 4, 5, 'Excellent course on VR engineering.'),
 (5, 5, 4, 'Good tips on interface design.');
+
+
+-- QUERY 1
+
+SELECT c.course_id, c.course_name, c.description, c.price, i.instructor_name
+FROM course c
+INNER JOIN instructor i ON c.instructor_id = i.instructor_id;
+
+-- QUERY 2
+
+SELECT c.course_id, c.course_name, c.description, c.price, i.instructor_name
+FROM course c
+INNER JOIN instructor i ON c.instructor_id = i.instructor_id
+where c.price >=200 
+order by c.course_id ;
+
+-- QUERY 3
+
+SELECT s.student_id, s.student_name, a.assignment_name, g.grade 
+FROM student s
+join grade g ON s.student_id = g.student_id
+Join assignment a On g.assignment_id = a.assignment_id
+order by g.grade;
+
+-- QUERY 4
+
+SELECT a.assignment_name, a.description, a.deadline, c.course_name
+FROM assignment a
+INNER JOIN course c ON a.course_id = c.course_id
+WHERE a.deadline BETWEEN '2024-07-01' AND '2024-07-31';
+
+-- QUERY 5
+
+SELECT d.course_id,c.course_name,d.topic, d.message, s.student_name
+FROM discussion_forum d
+INNER JOIN student s ON d.student_id = s.student_id
+INNER JOIN course c ON d.course_id = c.course_id
+WHERE d.course_id = 2;
+
+-- QUERY 6
+
+SELECT c.course_name, l.lesson_name
+FROM course c
+LEFT JOIN lesson l ON c.course_id = l.course_id
+WHERE c.course_name LIKE '%VR%';
+
+-- QUERY 7
+
+SELECT i.instructor_id,i.instructor_name, c.course_name
+FROM instructor i
+LEFT JOIN course c ON i.instructor_id = c.instructor_id
+WHERE i.specialization = 'Education';
+
+-- QUERY 8
+
+SELECT g.student_id,a.assignment_name, g.grade
+FROM assignment a
+RIGHT JOIN grade g ON a.assignment_id = g.assignment_id
+WHERE g.student_id = 3;
+
