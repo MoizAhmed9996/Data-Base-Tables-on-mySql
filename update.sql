@@ -229,3 +229,70 @@ FROM assignment a
 RIGHT JOIN grade g ON a.assignment_id = g.assignment_id
 WHERE g.student_id = 3;
 
+-- query 9 Count the number of records in a table.
+
+SELECT COUNT(*) FROM student;
+
+-- query 10 Calculate the total of a numeric column.
+
+SELECT SUM(age) FROM student;
+
+-- query 11 Calculate the average of a numeric column.
+
+SELECT AVG(price) FROM course;
+
+-- query 12 Calculate the total of a numeric column
+
+SELECT SUM(price) FROM course;
+
+-- query 13 Find the maximum value in a column.
+
+SELECT MAX(age) FROM student;
+
+-- query 14 Find the minimum value in a column.
+
+SELECT MIN(age) FROM student;
+
+-- query 15 Group records based on a column.
+
+SELECT rating, COUNT(*) FROM feedback_rating GROUP BY rating;
+
+-- query 16 Filter groups using HAVING clause.
+
+SELECT rating, COUNT(*) FROM feedback_rating GROUP BY rating HAVING rating>4;
+
+-- query 17 Concatenate values from different rows.
+
+SELECT GROUP_CONCAT(student_name SEPARATOR ', ') FROM student;
+
+-- query 18 Select the top N records from a table:
+
+SELECT * FROM student LIMIT 3;
+
+-- query 19 Select records with a specified offset.
+
+SELECT * FROM student LIMIT 3 OFFSET 2;
+
+-- query 20 Select records from a table based on multiple conditions:
+
+SELECT * FROM grade WHERE student_id>2 AND grade<90;
+
+-- query 21 Select records sorted by multiple columns:
+
+SELECT * FROM grade ORDER BY assignment_id, student_id;
+
+-- query 22 Select records where a column's value matches any value in a list:
+
+SELECT * FROM student WHERE student_id IN (1, 5, 3);
+
+-- query 23 Select records with values outside a specified range:
+
+SELECT * FROM grade WHERE grade NOT BETWEEN 89 AND 95;
+
+-- query 24 Select records with a specified offset.
+
+SELECT * FROM student LIMIT 3 OFFSET 2;
+
+-- query 25 Calculate the square root of a value:
+-- This query returns the square root of the specified number.
+SELECT SQRT(4);
