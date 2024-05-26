@@ -296,3 +296,26 @@ SELECT * FROM student LIMIT 3 OFFSET 2;
 -- query 25 Calculate the square root of a value:
 -- This query returns the square root of the specified number.
 SELECT SQRT(4);
+
+-- query  26 Select Distinct Single Column
+SELECT DISTINCT student_id FROM student;
+
+-- query 27 Select Distinct Multiple Columns
+
+SELECT DISTINCT rating, student_id FROM feedback_rating;
+
+-- query 28 Using DISTINCT with COUNT
+
+SELECT COUNT(DISTINCT rating) FROM feedback_rating;
+
+-- query 29 Using DISTINCT with WHERE Clause
+
+SELECT distinct student_id FROM student WHERE student_id>2;
+
+-- query 30 Using DISTINCT with ORDER BY
+
+SELECT DISTINCT rating ,student_id FROM feedback_rating ORDER BY rating;
+
+-- query 31 Using DISTINCT with GROUP BY
+
+SELECT DISTINCT rating, count(student_id) FROM feedback_rating GROUP BY rating;
