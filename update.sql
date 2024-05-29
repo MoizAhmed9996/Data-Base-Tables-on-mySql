@@ -333,6 +333,17 @@ FROM course c
 LEFT JOIN instructor i ON c.instructor_id = i.instructor_id
 WHERE i.instructor_id IS NULL;
 
+-- query 34(Retrieve the names of instructors who teach more than 3 courses:)
+SELECT i.instructor_name
+FROM instructor i
+INNER JOIN course c ON i.instructor_id = c.instructor_id
+GROUP BY i.instructor_name
+HAVING COUNT(c.course_id) > 3;
+
+
+-- query 35(Calculate the total revenue generated from course sales)
+SELECT SUM(price) AS total_revenue  FROM course;
+
 
 
 -- query 39(Retrieve the top 5 highest-priced courses:)
