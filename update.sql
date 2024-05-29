@@ -319,3 +319,6 @@ SELECT DISTINCT rating ,student_id FROM feedback_rating ORDER BY rating;
 -- query 31 Using DISTINCT with GROUP BY
 
 SELECT DISTINCT rating, count(student_id) FROM feedback_rating GROUP BY rating;
+
+-- query 39(Retrieve the top 5 highest-priced courses:)
+SELECT course_name, price FROM course ORDER BY price DESC LIMIT 5;
