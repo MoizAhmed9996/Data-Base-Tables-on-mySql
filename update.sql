@@ -357,8 +357,16 @@ LEFT JOIN grade g ON s.student_id = g.student_id
 LEFT JOIN assignment a ON g.assignment_id = a.assignment_id
 GROUP BY s.student_name;
 
-
-
+-- Query 38 (Count the number of students in each course)
+SELECT c.course_name, COUNT(s.student_id) AS num_students
+FROM course c
+LEFT JOIN student s ON c.course_id = s.course_id
+GROUP BY c.course_name;
 
 -- query 39(Retrieve the top 5 highest-priced courses:)
 SELECT course_name, price FROM course ORDER BY price DESC LIMIT 5;
+
+-- query 40(Find the average age of students:)
+SELECT AVG(age) FROM student;
+
+
