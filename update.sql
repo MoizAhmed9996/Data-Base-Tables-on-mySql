@@ -344,6 +344,20 @@ HAVING COUNT(c.course_id) > 3;
 -- query 35(Calculate the total revenue generated from course sales)
 SELECT SUM(price) AS total_revenue  FROM course;
 
+-- query 36 (Find the average grade for each assignment)
+SELECT a.assignment_name, AVG(g.grade) AS avg_grade
+FROM assignment a
+LEFT JOIN grade g ON a.assignment_id = g.assignment_id
+GROUP BY a.assignment_name;
+
+-- Query 37, Find the total number of assignments submitted by each student:
+SELECT s.student_name, COUNT(a.assignment_id) AS num_assignments
+FROM student s
+LEFT JOIN grade g ON s.student_id = g.student_id
+LEFT JOIN assignment a ON g.assignment_id = a.assignment_id
+GROUP BY s.student_name;
+
+
 
 
 -- query 39(Retrieve the top 5 highest-priced courses:)
