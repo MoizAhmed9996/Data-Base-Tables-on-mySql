@@ -320,5 +320,20 @@ SELECT DISTINCT rating ,student_id FROM feedback_rating ORDER BY rating;
 
 SELECT DISTINCT rating, count(student_id) FROM feedback_rating GROUP BY rating;
 
+-- query 32(Find the maximum grade achieved in each assignment)
+SELECT a.assignment_name, MAX(g.grade) AS max_grade
+FROM assignment a
+LEFT JOIN grade g ON a.assignment_id = g.assignment_id
+GROUP BY a.assignment_name;
+
+-- query 33(List the courses with no assigned instructors)
+
+SELECT c.course_name
+FROM course c
+LEFT JOIN instructor i ON c.instructor_id = i.instructor_id
+WHERE i.instructor_id IS NULL;
+
+
+
 -- query 39(Retrieve the top 5 highest-priced courses:)
 SELECT course_name, price FROM course ORDER BY price DESC LIMIT 5;
