@@ -13,4 +13,6 @@
 INSERT INTO student (student_name, email, country, age, gender) 
 VALUES ('Michael Brown', 'michael@example.com', 'USA', 28, 'Male'),
        ('Emily White', 'emily@example.com', 'Canada', 24, 'Female'),
-       ('Alex Wong', 'alex@example.com', 'UK', 30, 'Other');
+       ('Alex Wong', 'alex@example.com', 'UK', 30, 'Other'),
+       ('Emily Davis', 'emily.davis@example.com', 'Australia', 28, 'Female'),
+       ('Michael Brown', 'michael.brown@example.com', 'USA', 24, 'Male');
