@@ -9,4 +9,9 @@ CREATE TABLE IF NOT EXISTS vr_environment (
 
 -- Inserting data into the vr_environment table
 INSERT INTO vr_environment (environment_name, description, course_id) 
-VALUES ('VR Game World', 'A simulated environment for testing VR games.', 1);
+VALUES ('VR Game World', 'A simulated environment for testing VR games.', 1),
+('VR Lab', 'A virtual lab for experiments.', 2),
+('VR Playground', 'A virtual playground for kids.', 3),
+('VR Workshop', 'A workshop for engineering projects.', 4),
+('VR Studio', 'A studio for design projects.', 5);
+
