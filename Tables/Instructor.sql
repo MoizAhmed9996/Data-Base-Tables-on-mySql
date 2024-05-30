@@ -9,5 +9,11 @@ CREATE TABLE IF NOT EXISTS instructor (
 
 # inserting values into it#
 -- Inserting data into the instructor table
-INSERT INTO instructor (instructor_name, specialization, bio) 
-VALUES ('Dr. Sarah Johnson', 'Virtual Reality Programming', 'Dr. Sarah Johnson has been working in VR programming for over a decade.');
+INSERT INTO instructor (instructor_name, specialization, bio) VALUES 
+('Alice Johnson', 'Virtual Reality', 'Expert in VR technology and applications.'),
+('Bob Smith', 'Computer Science', 'Specialist in algorithms and data structures.'),
+('Charlie Brown', 'Education', 'Focused on innovative teaching methods.'),
+('Diana Prince', 'Engineering', 'Experienced in mechanical engineering.'),
+('Evan Williams', 'Design', 'Skilled in UI/UX design.');
+
+
