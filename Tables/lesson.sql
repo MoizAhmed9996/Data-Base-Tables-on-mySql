@@ -11,4 +11,8 @@ CREATE TABLE IF NOT EXISTS lesson (
 
 -- Inserting data into the lesson table
 INSERT INTO lesson (course_id, lesson_name, content) 
-VALUES (1, 'Advanced VR Graphics', 'This lesson covers advanced graphics techniques in VR.');
+VALUES (1, 'Advanced VR Graphics', 'This lesson covers advanced graphics techniques in VR.'),
+       (2, 'Advanced VR Techniques', 'Deep dive into VR programming.'),
+       (3, 'VR in Classroom', 'Using VR for teaching and learning.'),
+       (4, 'VR Engineering Applications', 'Engineering in virtual environments.'),
+       (5, 'Design Principles', 'Designing effective VR interfaces.');
