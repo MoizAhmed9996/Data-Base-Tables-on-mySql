@@ -233,6 +233,7 @@ WHERE g.student_id = 3;
 
 SELECT COUNT(*) FROM student;
 
+
 -- query 10 Calculate the average of a numeric column.
 
 SELECT AVG(price) FROM course;
@@ -308,19 +309,116 @@ SELECT DISTINCT rating, count(student_id) FROM feedback_rating GROUP BY rating;
 
 -- query 28(Find the maximum grade achieved in each assignment)
 
+-- query 10 Calculate the total of a numeric column.
+
+SELECT SUM(age) FROM student;
+
+-- query 11 Calculate the average of a numeric column.
+
+SELECT AVG(price) FROM course;
+
+-- query 12 Calculate the total of a numeric column
+
+SELECT SUM(price) FROM course;
+
+-- query 13 Find the maximum value in a column.
+
+SELECT MAX(age) FROM student;
+
+-- query 14 Find the minimum value in a column.
+
+SELECT MIN(age) FROM student;
+
+-- query 15 Group records based on a column.
+
+SELECT rating, COUNT(*) FROM feedback_rating GROUP BY rating;
+
+-- query 16 Filter groups using HAVING clause.
+
+SELECT rating, COUNT(*) FROM feedback_rating GROUP BY rating HAVING rating>4;
+
+-- query 17 Concatenate values from different rows.
+
+SELECT GROUP_CONCAT(student_name SEPARATOR ', ') FROM student;
+
+-- query 18 Select the top N records from a table:
+
+SELECT * FROM student LIMIT 3;
+
+-- query 19 Select records with a specified offset.
+
+SELECT * FROM student LIMIT 3 OFFSET 2;
+
+-- query 20 Select records from a table based on multiple conditions:
+
+SELECT * FROM grade WHERE student_id>2 AND grade<90;
+
+-- query 21 Select records sorted by multiple columns:
+
+SELECT * FROM grade ORDER BY assignment_id, student_id;
+
+-- query 22 Select records where a column's value matches any value in a list:
+
+SELECT * FROM student WHERE student_id IN (1, 5, 3);
+
+-- query 23 Select records with values outside a specified range:
+
+SELECT * FROM grade WHERE grade NOT BETWEEN 89 AND 95;
+
+-- query 24 Select records with a specified offset.
+
+SELECT * FROM student LIMIT 3 OFFSET 2;
+
+-- query 25 Calculate the square root of a value:
+-- This query returns the square root of the specified number.
+SELECT SQRT(4);
+
+-- query  26 Select Distinct Single Column
+SELECT DISTINCT student_id FROM student;
+
+-- query 27 Select Distinct Multiple Columns
+
+SELECT DISTINCT rating, student_id FROM feedback_rating;
+
+-- query 28 Using DISTINCT with COUNT
+
+SELECT COUNT(DISTINCT rating) FROM feedback_rating;
+
+-- query 29 Using DISTINCT with WHERE Clause
+
+SELECT distinct student_id FROM student WHERE student_id>2;
+
+-- query 30 Using DISTINCT with ORDER BY
+
+SELECT DISTINCT rating ,student_id FROM feedback_rating ORDER BY rating;
+
+-- query 31 Using DISTINCT with GROUP BY
+
+SELECT DISTINCT rating, count(student_id) FROM feedback_rating GROUP BY rating;
+
+-- query 32(Find the maximum grade achieved in each assignment)
+
 SELECT a.assignment_name, MAX(g.grade) AS max_grade
 FROM assignment a
 LEFT JOIN grade g ON a.assignment_id = g.assignment_id
 GROUP BY a.assignment_name;
 
+
 -- query 29(List the courses with no assigned instructors)
+
+-- query 33(List the courses with no assigned instructors)
+
 
 SELECT c.course_name
 FROM course c
 LEFT JOIN instructor i ON c.instructor_id = i.instructor_id
 WHERE i.instructor_id IS NULL;
 
+
 -- query 30(Retrieve the names of instructors who teach more than 3 courses:)
+
+
+-- query 34(Retrieve the names of instructors who teach more than 3 courses:)
 
 SELECT i.instructor_name
 FROM instructor i
@@ -329,18 +427,29 @@ GROUP BY i.instructor_name
 HAVING COUNT(c.course_id) > 3;
 
 
+
 -- query 31(Calculate the total revenue generated from course sales)
 
 SELECT SUM(price) AS total_revenue  FROM course;
 
 -- query 32 (Find the average grade for each assignment)
 
+
+-- query 35(Calculate the total revenue generated from course sales)
+SELECT SUM(price) AS total_revenue  FROM course;
+
+-- query 36 (Find the average grade for each assignment)
+
 SELECT a.assignment_name, AVG(g.grade) AS avg_grade
 FROM assignment a
 LEFT JOIN grade g ON a.assignment_id = g.assignment_id
 GROUP BY a.assignment_name;
 
+
 -- Query 33, Find the total number of assignments submitted by each student:
+
+
+-- Query 37, Find the total number of assignments submitted by each student:
 
 SELECT s.student_name, COUNT(a.assignment_id) AS num_assignments
 FROM student s
@@ -348,12 +457,17 @@ LEFT JOIN grade g ON s.student_id = g.student_id
 LEFT JOIN assignment a ON g.assignment_id = a.assignment_id
 GROUP BY s.student_name;
 
+
 -- Query 34 (Count the number of students in each course)
+
+
+-- Query 38 (Count the number of students in each course)
 
 SELECT c.course_name, COUNT(s.student_id) AS num_students
 FROM course c
 LEFT JOIN student s ON c.course_id = s.course_id
 GROUP BY c.course_name;
+
 
 -- query 35(Retrieve the top 5 highest-priced courses:)
 
@@ -365,12 +479,25 @@ SELECT AVG(age) FROM student;
 
 -- Query37 Retrieve the names of all students who have received a grade of ‘A’ (90% and above):
 
+
+-- query 39(Retrieve the top 5 highest-priced courses:)
+SELECT course_name, price FROM course ORDER BY price DESC LIMIT 5;
+
+-- query 40(Find the average age of students:)
+SELECT AVG(age) FROM student;
+
+-- (Query41) Retrieve the names of all students who have received a grade of ‘A’ (90% and above):
+
 SELECT s.student_name
 FROM student s
 JOIN grade g ON s.student_id = g.student_id
 WHERE g.grade >= 90.00;
 
+
 --  Query 38 (Calculate the average progress made by students in each course:)
+
+
+--  Query 42(Calculate the average progress made by students in each course:)
 
 SELECT c.course_name, AVG(p.progress) AS avg_progress
 FROM progress_tracking p
@@ -378,7 +505,11 @@ JOIN course c ON p.course_id = c.course_id
 GROUP BY c.course_name;
 
 
+
 -- Query 39 (Find students who have completed at least 80% of any course)
+
+
+-- Query 43 (Find students who have completed at least 80% of any course)
 
 SELECT s.student_name, c.course_name, p.progress
 FROM progress_tracking p
@@ -386,18 +517,27 @@ JOIN student s ON p.student_id = s.student_id
 JOIN course c ON p.course_id = c.course_id
 WHERE p.progress >= 80.00;
 
+
 -- Query 40(Display courses that have not received any feedback ratings yet)
+
+
+-- Query 44(Display courses that have not received any feedback ratings yet)
 
 SELECT c.course_name
 FROM course c
 LEFT JOIN feedback_rating f ON c.course_id = f.course_id
 WHERE f.rating IS NULL;
 
+
 -- Query 41(Show the total number of students from each country)
+
+-- Query 45(Show the total number of students from each country)
+
 
 SELECT country, COUNT(*) AS student_count
 FROM student
 GROUP BY country;
+
 
 -- Query 42 (Find all assignments due before a specific date)
 
@@ -429,4 +569,7 @@ LIMIT 1;
 SELECT course_id, COUNT(lesson_id) AS num_lessons
 FROM lesson
 GROUP BY course_id;
+
+
+
 
