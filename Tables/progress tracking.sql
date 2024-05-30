@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS progress_tracking (
 
 -- Inserting data into the progress_tracking table
 INSERT INTO progress_tracking (student_id, course_id, progress) 
-VALUES (1, 1, 60),
-       (2, 1, 80),
-       (3, 1, 40);
+VALUES (1, 1, 50.00),
+(2, 2, 75.00),
+(3, 3, 60.00),
+(4, 4, 80.00),
+(5, 5, 70.00);
