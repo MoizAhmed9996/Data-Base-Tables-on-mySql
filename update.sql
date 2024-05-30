@@ -369,4 +369,37 @@ SELECT course_name, price FROM course ORDER BY price DESC LIMIT 5;
 -- query 40(Find the average age of students:)
 SELECT AVG(age) FROM student;
 
+-- (Query41) Retrieve the names of all students who have received a grade of ‘A’ (90% and above):
+SELECT s.student_name
+FROM student s
+JOIN grade g ON s.student_id = g.student_id
+WHERE g.grade >= 90.00;
+
+--  Query 42(Calculate the average progress made by students in each course:)
+SELECT c.course_name, AVG(p.progress) AS avg_progress
+FROM progress_tracking p
+JOIN course c ON p.course_id = c.course_id
+GROUP BY c.course_name;
+
+
+-- Query 43 (Find students who have completed at least 80% of any course)
+SELECT s.student_name, c.course_name, p.progress
+FROM progress_tracking p
+JOIN student s ON p.student_id = s.student_id
+JOIN course c ON p.course_id = c.course_id
+WHERE p.progress >= 80.00;
+
+-- Query 44(Display courses that have not received any feedback ratings yet)
+SELECT c.course_name
+FROM course c
+LEFT JOIN feedback_rating f ON c.course_id = f.course_id
+WHERE f.rating IS NULL;
+
+-- Query 45(Show the total number of students from each country)
+
+SELECT country, COUNT(*) AS student_count
+FROM student
+GROUP BY country;
+
+
 
