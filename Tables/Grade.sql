@@ -13,4 +13,7 @@ CREATE TABLE IF NOT EXISTS grade (
 INSERT INTO grade (student_id, assignment_id, grade) 
 VALUES (1, 1, 92.5),
        (2, 1, 85.0),
-       (3, 1, 88.2);
+       (3, 1, 88.2),
+       (4, 4, 92.50),
+       (5, 5, 87.00);
+
