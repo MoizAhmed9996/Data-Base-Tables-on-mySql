@@ -14,4 +14,7 @@ CREATE TABLE IF NOT EXISTS discussion_forum (
 -- Inserting data into the discussion_forum table
 INSERT INTO discussion_forum (course_id, topic, message, student_id) 
 VALUES (1, 'Project Ideas', 'Share your ideas for the final VR project.', 1),
-       (1, 'Graphics Discussion', 'Discuss advanced graphics techniques.', 2);
+       (1, 'Graphics Discussion', 'Discuss advanced graphics techniques.', 2),
+       (3, 'VR in Education', 'How can we use VR in classrooms?', 3),
+       (4, 'VR Engineering Projects', 'Ideas for engineering projects in VR.', 4),
+       (5, 'VR Interface Design', 'Tips for designing VR interfaces.', 5);
