@@ -10,4 +10,9 @@ CREATE TABLE IF NOT EXISTS assignment (
 
 -- Inserting data into the assignment table
 INSERT INTO assignment (course_id, assignment_name, description, deadline) 
-VALUES (1, 'Final VR Project', 'Develop a fully functional VR application.', '2024-07-15');
+VALUES (1, 'Final VR Project', 'Develop a fully functional VR application.', '2024-07-15'),
+(2, 'Advanced VR Project', 'Project on advanced VR techniques.', '2024-07-15'),
+(3, 'Educational VR Case Study', 'Case study on VR in education.', '2024-08-01'),
+(4, 'Engineering VR Task', 'Task on VR engineering applications.', '2024-07-20'),
+(5, 'Design Interface Assignment', 'Assignment on VR interface design.', '2024-07-25');
+
